@@ -1,0 +1,19 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: payment-management-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/payment-management-service-db
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+  config:
+    import: configserver:http://localhost:9296
+logging:
+  file:
+    name: D:/logs/payment-management-service.log
